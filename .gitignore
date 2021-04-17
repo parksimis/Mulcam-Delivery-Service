@@ -353,6 +353,7 @@ $RECYCLE.BIN/
 # User Creation Code
 temp/
 data/
+secrets.json
 
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,python,pycharm+all,jupyternotebooks,django
