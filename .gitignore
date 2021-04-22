@@ -354,6 +354,7 @@ $RECYCLE.BIN/
 temp/
 data/
 secrets.json
+django/startbootstrap-sb-admin-gh-pages/
 
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,python,pycharm+all,jupyternotebooks,django
