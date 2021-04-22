@@ -122,6 +122,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ko-kr'
 
+DATETIME_FORMAT = '%Y-%m-%d %H:%M'
+
 TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
