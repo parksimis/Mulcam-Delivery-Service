@@ -3,7 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Chicken(models.Model):
-
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간
@@ -12,6 +13,8 @@ class Chicken(models.Model):
     predict = models.BigIntegerField()
 
 class Ilsik(models.Model):
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간
@@ -20,6 +23,8 @@ class Ilsik(models.Model):
     predict = models.BigIntegerField()
 
 class Bunsik(models.Model):
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간
@@ -28,6 +33,8 @@ class Bunsik(models.Model):
     predict = models.BigIntegerField()
 
 class Yasik(models.Model):
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간
@@ -36,6 +43,8 @@ class Yasik(models.Model):
     predict = models.BigIntegerField()
 
 class Jokbal(models.Model):
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간
@@ -44,6 +53,8 @@ class Jokbal(models.Model):
     predict = models.BigIntegerField()
 
 class Jungsik(models.Model):
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간
@@ -52,6 +63,8 @@ class Jungsik(models.Model):
     predict = models.BigIntegerField()
 
 class Jimtang(models.Model):
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간
@@ -60,6 +73,8 @@ class Jimtang(models.Model):
     predict = models.BigIntegerField()
 
 class Cafe(models.Model):
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간
@@ -68,6 +83,8 @@ class Cafe(models.Model):
     predict = models.BigIntegerField()
 
 class Fastfood(models.Model):
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간
@@ -76,6 +93,8 @@ class Fastfood(models.Model):
     predict = models.BigIntegerField()
 
 class Hansik(models.Model):
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간
@@ -84,6 +103,8 @@ class Hansik(models.Model):
     predict = models.BigIntegerField()
 
 class Etc(models.Model):
+    # 업종명
+    category = models.CharField(max_length=10)
     # 광역시도명
     area_name = models.CharField(max_length=20)
     # 시간대별 시간

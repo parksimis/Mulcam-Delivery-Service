@@ -104,3 +104,87 @@ def divide_df(df):
     table2 = df['주문건수'].values
 
     return table1.tolist(), table2.tolist()
+
+
+def execute_all(table, formula):
+    table = select_all(table)
+
+    add_column_tbl = add_datetime_column(table)
+    daily_tbl = preprocessing_df(add_column_tbl, formula='일자별')
+    hour_tbl = preprocessing_df(add_column_tbl, formula='시간대별')
+
+    sl_daily_tbl = cutting_area(daily_tbl, '서울')
+    gg_daily_tbl = cutting_area(daily_tbl, '경기도')
+
+    sl_hour_tbl = cutting_area(hour_tbl, '서울')
+    gg_hour_tbl = cutting_area(hour_tbl, '경기도')
+
+    if formula == '일자별':
+        sl_daily_lbl, sl_daily_val = divide_df(sl_daily_tbl)
+        gg_daily_lbl, gg_daily_val = divide_df(gg_daily_tbl)
+        return sl_daily_lbl, sl_daily_val, gg_daily_lbl, gg_daily_val
+
+    elif formula == '시간대별':
+        sl_hour_lbl, sl_hour_val = divide_df(sl_hour_tbl)
+        gg_hour_lbl, gg_hour_val = divide_df(gg_hour_tbl)
+        return sl_hour_lbl, sl_hour_val, gg_hour_lbl, gg_hour_val
+
+
+def main_line_data():
+    model_list = ['chicken', 'ilsik', 'bunsik', 'yasik', 'jokbal', 'jungsik', 'jimtang', 'cafe', 'fastfood', 'hansik',
+                  'etc']
+
+    result = pd.DataFrame(columns=['광역시도명', '시간', '주문건수', '업종명'])
+
+    for model in model_list:
+        model_result = select_all(model).reset_index(drop=True)
+
+        result = pd.concat([result, model_result], axis=0)
+
+    add_result = add_datetime_column(result)
+
+    main_result = add_result.loc[(add_result['year'] == max(add_result['year'])) & (
+                add_result['month'] == max(add_result['month']))].reset_index(drop=True)
+
+    main_result['주문건수'] = main_result['주문건수'].astype('int')
+
+    line_result = main_result.groupby(['year', 'month', 'day']).sum().reset_index()
+    line_result[['year', 'month', 'day']] = line_result[['year', 'month', 'day']].astype('str')
+    line_result['시간'] = line_result['year'] + '-' + line_result['month'] + '-' + line_result['day']
+    line_result['시간'] = pd.to_datetime(line_result['시간']).dt.strftime('%Y-%m-%d')
+    line_result.drop(['year', 'month', 'day'], axis=1, inplace=True)
+    line_result = line_result[['시간', '주문건수']]
+    line_result['주문건수'] = line_result['주문건수'].astype('int')
+
+    line_lbl, line_val = divide_df(line_result)
+
+    return line_lbl, line_val
+
+
+def main_pie_data():
+    model_list = ['chicken', 'ilsik', 'bunsik', 'yasik', 'jokbal', 'jungsik', 'jimtang', 'cafe', 'fastfood', 'hansik',
+                  'etc']
+
+    result = pd.DataFrame(columns=['광역시도명', '시간', '주문건수', '업종명'])
+
+    for model in model_list:
+        model_result = select_all(model).reset_index(drop=True)
+
+        result = pd.concat([result, model_result], axis=0)
+
+    add_result = add_datetime_column(result)
+
+    main_result = add_result.loc[(add_result['year'] == max(add_result['year'])) & (
+                add_result['month'] == max(add_result['month']))].reset_index(drop=True)
+
+    main_result['주문건수'] = main_result['주문건수'].astype('int')
+
+    pie_result = main_result.groupby(['업종명']).agg({'주문건수': sum}).sort_values(by='주문건수', ascending=False)
+
+    pie_data = (pie_result / pie_result.sum() * 100)
+
+    pie_data = np.round(pie_data, 2)
+
+    return pie_data.index.tolist(), pie_data.values.reshape(1, -1)
+
+

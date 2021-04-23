@@ -10247,3 +10247,12 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+a {
+  color: black;
+}
+
+a:hover{
+  color: red;
+  text-decoration: underline;
+}

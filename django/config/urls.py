@@ -19,5 +19,16 @@ from main.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index')
+    path('', index, name='index'),
+    path('chicken_result', chicken_result, name='chicken_result'),
+    path('ilsik_result', ilsik_result, name='ilsik_result'),
+    path('bunsik_result', bunsik_result, name='bunsik_result'),
+    path('yasik_result', yasik_result, name='yasik_result'),
+    path('jokbal_result', jokbal_result, name='jokbal_result'),
+    path('jungsik_result', jungsik_result, name='jungsik_result'),
+    path('jimtang_result', jimtang_result, name='jimtang_result'),
+    path('cafe_result', cafe_result, name='cafe_result'),
+    path('fastfood_result', fastfood_result, name='fastfood_result'),
+    path('hansik_result', hansik_result, name='hansik_result'),
+    path('etc_result', etc_result, name='etc_result'),
 ]
