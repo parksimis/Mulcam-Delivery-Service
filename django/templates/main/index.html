@@ -11,95 +11,45 @@
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Start Bootstrap</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
-                    </div>
-                </li>
-            </ul>
         </nav>
+
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <div class="sb-sidenav-menu-heading">전체 업종</div>
+                            <a class="nav-link" href="{% url 'index' %}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                                전체 업종 순위
                             </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <div class="sb-sidenav-menu-heading">업종별</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                                업종별 상세 차트
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                           <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                    <a class="nav-link" href="{% url 'chicken_result' %}">치킨</a>
+                                    <a class="nav-link" href="{% url 'ilsik_result' %}">돈까스/일식</a>
+                                    <a class="nav-link" href="{% url 'bunsik_result' %}">분식</a>
+                                    <a class="nav-link" href="{% url 'yasik_result' %}">야식</a>
+                                    <a class="nav-link" href="{% url 'jokbal_result' %}">족발/보쌈</a>
+                                    <a class="nav-link" href="{% url 'jungsik_result' %}">중식</a>
+                                    <a class="nav-link" href="{% url 'jimtang_result' %}">찜/탕</a>
+                                    <a class="nav-link" href="{% url 'cafe_result' %}">카페/디저트</a>
+                                    <a class="nav-link" href="{% url 'fastfood_result' %}">패스트푸드</a>
+                                    <a class="nav-link" href="{% url 'hansik_result' %}">한식</a>
+                                    <a class="nav-link" href="{% url 'etc_result' %}">기타<br>(도시락/배달전문업체)</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -111,79 +61,39 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Dashboard</h1>
-<!--                        <ol class="breadcrumb mb-4">-->
-<!--                            <li class="breadcrumb-item active">Dashboard</li>-->
-<!--                        </ol>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-xl-3 col-md-6">-->
-<!--                                <div class="card bg-primary text-white mb-4">-->
-<!--                                    <div class="card-body">Primary Card</div>-->
-<!--                                    <div class="card-footer d-flex align-items-center justify-content-between">-->
-<!--                                        <a class="small text-white stretched-link" href="#">View Details</a>-->
-<!--                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--&lt;!&ndash;                            <div class="col-xl-3 col-md-6">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div class="card bg-warning text-white mb-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="card-body">Warning Card</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="card-footer d-flex align-items-center justify-content-between">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <a class="small text-white stretched-link" href="#">View Details</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <div class="col-xl-3 col-md-6">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div class="card bg-success text-white mb-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="card-body">Success Card</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="card-footer d-flex align-items-center justify-content-between">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <a class="small text-white stretched-link" href="#">View Details</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <div class="col-xl-3 col-md-6">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div class="card bg-danger text-white mb-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="card-body">Danger Card</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="card-footer d-flex align-items-center justify-content-between">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <a class="small text-white stretched-link" href="#">View Details</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-xl-6">-->
-<!--                                <div class="card mb-4">-->
-<!--                                    <div class="card-header">-->
-<!--                                        <i class="fas fa-chart-area mr-1"></i>-->
-<!--                                        Area Chart Example-->
-<!--                                    </div>-->
-<!--                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-xl-6">-->
-<!--                                <div class="card mb-4">-->
-<!--                                    <div class="card-header">-->
-<!--                                        <i class="fas fa-chart-bar mr-1"></i>-->
-<!--                                        Bar Chart Example-->
-<!--                                    </div>-->
-<!--                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <h1 class="mt-4">전체 업종</h1>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-line mr-1"></i>
+                                        일자별 전체 예측 주문건수
+                                    </div>
+                                    <div class="card-body"><canvas id="main_line" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-pie mr-1"></i>
+                                        업종별 전체 예측 주문 비율
+                                    </div>
+                                    <div class="card-body"><canvas id="main_pie" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                DataTable
+                                실시간 업종별 주문 예측 건수 순위
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>순위</th>
+                                                <th>날짜</th>
                                                 <th>광역시도명</th>
                                                 <th>업종명</th>
                                                 <th>배달건수</th>
@@ -192,102 +102,45 @@
                                         <tfoot>
                                             <tr>
                                                 <th>순위</th>
+                                                <th>날짜</th>
                                                 <th>광역시도명</th>
                                                 <th>업종명</th>
                                                 <th>배달건수</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Herrod Chandler</td>
-                                                <td>Sales Assistant</td>
-                                                <td>San Francisco</td>
-                                                <td>59</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Rhona Davidson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>Tokyo</td>
-                                                <td>55</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Colleen Hurst</td>
-                                                <td>Javascript Developer</td>
-                                                <td>San Francisco</td>
-                                                <td>39</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sonya Frost</td>
-                                                <td>Software Engineer</td>
-                                                <td>Edinburgh</td>
-                                                <td>23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jena Gaines</td>
-                                                <td>Office Manager</td>
-                                                <td>London</td>
-                                                <td>30</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Quinn Flynn</td>
-                                                <td>Support Lead</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Charde Marshall</td>
-                                                <td>Regional Director</td>
-                                                <td>San Francisco</td>
-                                                <td>36</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Haley Kennedy</td>
-                                                <td>Senior Marketing Designer</td>
-                                                <td>London</td>
-                                                <td>43</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tatyana Fitzpatrick</td>
-                                                <td>Regional Director</td>
-                                                <td>London</td>
-                                                <td>19</td>
-                                            </tr>
+                                            {% for result in result_list %}
+                                                <tr>
+                                                    <td>{{forloop.counter}}</td>
+                                                {% for key, value in result.items %}
+                                                    {% if value == '치킨' %}
+                                                        <td><a href="{% url 'chicken_result' %}">{{value}}</a></td>
+                                                    {% elif value == '돈까스/일식' %}
+                                                        <td><a href="{% url 'ilsik_result' %}">{{value}}</a></td>
+                                                    {% elif value == '분식' %}
+                                                        <td><a href="{% url 'bunsik_result' %}">{{value}}</a></td>
+                                                    {% elif value == '야식' %}
+                                                        <td><a href="{% url 'yasik_result' %}">{{value}}</a></td>
+                                                    {% elif value == '족발/보쌈' %}
+                                                        <td><a href="{% url 'jokbal_result' %}">{{value}}</a></td>
+                                                    {% elif value == '중식' %}
+                                                        <td><a href="{% url 'jungsik_result' %}">{{value}}</a></td>
+                                                    {% elif value == '찜/탕' %}
+                                                        <td><a href="{% url 'jimtang_result' %}">{{value}}</a></td>
+                                                    {% elif value == '카페/디저트' %}
+                                                        <td><a href="{% url 'cafe_result' %}">{{value}}</a></td>
+                                                    {% elif value == '패스트푸드' %}
+                                                        <td><a href="{% url 'fastfood_result' %}">{{value}}</a></td>
+                                                    {% elif value == '한식' %}
+                                                        <td><a href="{% url 'hansik_result' %}">{{value}}</a></td>
+                                                    {% elif value == '기타' %}
+                                                        <td><a href="{% url 'etc_result' %}">{{value}}</a></td>
+                                                    {% else %}
+                                                        <td>{{value}}</td>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
@@ -309,6 +162,10 @@
                 </footer>
             </div>
         </div>
+        <input type="hidden" id="main_line_lbl" value="{{main_line_lbl}}">
+        <input type="hidden" id="main_line_val" value="{{main_line_val}}">
+        <input type="hidden" id="main_pie_lbl" value="{{main_pie_lbl}}">
+        <input type="hidden" id="main_pie_val" value="{{main_pie_val}}">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{% static 'src/js/scripts.js' %}"></script>

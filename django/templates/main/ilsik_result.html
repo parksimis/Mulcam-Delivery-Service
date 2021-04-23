@@ -1,0 +1,68 @@
+{% extends 'charts_base.html' %}
+
+{% block content %}
+
+  <div class="container-fluid">
+      <p><h1 class="mt-4"><span class="material-icons" style="font-size: 35px;">set_meal</span>&nbsp;돈까스/일식(회)</h1></p>
+      <ol class="breadcrumb mb-4">
+          <li class="breadcrumb-item"><a href="{%url 'index' %}">Dashboard</a></li>
+          <li class="breadcrumb-item active">Charts</li>
+      </ol>
+      <h2>경기도</h2>
+      <div class="row">
+          <div class="col-lg-6">
+
+              <div class="card mb-4">
+                  <div class="card-header">
+                      <i class="fas fa-chart-line mr-1"></i>
+                      경기도 - 일자별 평균 배달 주문건수(예측)
+                  </div>
+                  <div class="card-body"><canvas id="gg_daily_chart" width="100%" height="50"></canvas></div>
+                  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="card mb-4">
+                  <div class="card-header">
+                      <i class="fas fa-chart-bar mr-1"></i>
+                      경기도 - 시간대별 평균 배달 주문건수 예측
+                  </div>
+                  <div class="card-body"><canvas id="gg_hour_chart" width="100%" height="50"></canvas></div>
+                  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+              </div>
+          </div>
+      </div>
+      <h2>서울</h2>
+      <div class="row mt-6">
+          <div class="col-lg-6">
+              <div class="card mb-4">
+                  <div class="card-header">
+                      <i class="fas fa-chart-line mr-1"></i>
+                      서울 - 일자별 평균 배달 주문건수(예측)
+                  </div>
+                  <div class="card-body"><canvas id="sl_daily_chart" width="100%" height="50"></canvas></div>
+                  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+              </div>
+          </div>
+
+          <div class="col-lg-6">
+              <div class="card mb-4">
+                  <div class="card-header">
+                      <i class="fas fa-chart-bar mr-1"></i>
+                      서울 - 시간대별 평균 배달 주문건수(예측)
+                  </div>
+                  <div class="card-body"><canvas id="sl_hour_chart" width="100%" height="50"></canvas></div>
+                  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+              </div>
+          </div>
+      </div>
+  </div>
+    <input type="hidden" id="sl_daily_lbl" value="{{sl_daily_lbl}}">
+    <input type="hidden" id="sl_daily_val" value="{{sl_daily_val}}">
+    <input type="hidden" id="sl_hour_lbl" value="{{sl_hour_lbl}}">
+    <input type="hidden" id="sl_hour_val" value="{{sl_hour_val}}">
+    <input type="hidden" id="gg_daily_lbl" value="{{gg_daily_lbl}}">
+    <input type="hidden" id="gg_daily_val" value="{{gg_daily_val}}">
+    <input type="hidden" id="gg_hour_lbl" value="{{gg_hour_lbl}}">
+    <input type="hidden" id="gg_hour_val" value="{{gg_hour_val}}">
+{% endblock %}
