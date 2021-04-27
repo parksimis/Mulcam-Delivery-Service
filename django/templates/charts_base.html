@@ -7,14 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Charts - SB Admin</title>
+        <title>궁(금해), 예(측건수)</title>
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url 'index' %}">Start Bootstrap</a>
+            <a id=index_title class="navbar-brand" href="{% url 'index' %}">궁<span>(금해)</span> , 예<span>(측건수)</span></a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         </nav>
         <div id="layoutSidenav">
@@ -24,28 +24,28 @@
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">전체 업종</div>
                             <a class="nav-link" href="{% url 'index' %}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 전체 업종 순위
                             </a>
                             <div class="sb-sidenav-menu-heading">업종별</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-search-plus"></i></div>
                                 업종별 상세 차트
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{% url 'chicken_result' %}">치킨</a>
-                                    <a class="nav-link" href="{% url 'ilsik_result' %}">돈까스/일식</a>
-                                    <a class="nav-link" href="{% url 'bunsik_result' %}">분식</a>
-                                    <a class="nav-link" href="{% url 'yasik_result' %}">야식</a>
-                                    <a class="nav-link" href="{% url 'jokbal_result' %}">족발/보쌈</a>
-                                    <a class="nav-link" href="{% url 'jungsik_result' %}">중식</a>
-                                    <a class="nav-link" href="{% url 'jimtang_result' %}">찜/탕</a>
-                                    <a class="nav-link" href="{% url 'cafe_result' %}">카페/디저트</a>
-                                    <a class="nav-link" href="{% url 'fastfood_result' %}">패스트푸드</a>
-                                    <a class="nav-link" href="{% url 'hansik_result' %}">한식</a>
-                                    <a class="nav-link" href="{% url 'etc_result' %}">기타<br>(도시락/배달전문업체)</a>
+                                    <a class="nav-link" href="{% url 'chicken_result' %}"><i class="fas fa-drumstick-bite"></i>&nbsp;치킨</a>
+                                    <a class="nav-link" href="{% url 'ilsik_result' %}"><span class="material-icons">set_meal</span>&nbsp;돈까스/일식</a>
+                                    <a class="nav-link" href="{% url 'bunsik_result' %}"><i class="fas fa-utensils"></i>&nbsp;분식</a>
+                                    <a class="nav-link" href="{% url 'yasik_result' %}"><i class="fas fa-cloud-moon"></i>&nbsp;야식</a>
+                                    <a class="nav-link" href="{% url 'jokbal_result' %}"><i class="fas fa-piggy-bank"></i>&nbsp;족발/보쌈</a>
+                                    <a class="nav-link" href="{% url 'jungsik_result' %}"><span class="material-icons">ramen_dining</span>&nbsp;중식</a>
+                                    <a class="nav-link" href="{% url 'jimtang_result' %}"><i class="fab fa-hotjar"></i>&nbsp;찜/탕</a>
+                                    <a class="nav-link" href="{% url 'cafe_result' %}"><i class="fas fa-coffee"></i>&nbsp;카페/디저트</a>
+                                    <a class="nav-link" href="{% url 'fastfood_result' %}"><i class="fas fa-hamburger"></i>&nbsp;패스트푸드</a>
+                                    <a class="nav-link" href="{% url 'hansik_result' %}"><span class="material-icons"> rice_bowl</span>&nbsp;한식</a>
+                                    <a class="nav-link" href="{% url 'etc_result' %}"><span class="material-icons">delivery_dining</span>&nbsp;기타</a>
                                 </nav>
                             </div>
                         </div>
@@ -57,23 +57,83 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>
+                <main class="mb-sm-5">
                     {% block content %}
 
                     {% endblock %}
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
+                <footer class="site-footer">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-6">
+                        <h6>About</h6>
+                        <p class="text-justify">
+                          <span style="font-family: 'BMEuljiro10yearslater'; font-size: 20px; ">궁<span style="font-size: 10px;">(금해)</span>, 예<span style="font-size: 10px;">(측건수)</span></span>
+                          <p>빅데이터 서비스 개발 전공 프로젝트</p>
+                          <p>기상, 미세먼지, 코로나 데이터를 활용한 시간/업종별 배달 주문건수를 예측해 웹으로 구현한 프로토타입입니다.</p>
+                          <p>팀장 : 박선익 | <a href="mailto:parksimis@kyonggi.ac.kr">parksimis@kyonggi.ac.kr</a><br>
+                          팀원 : 김은영 | <a href="mailto:sunoju03@gmail.com">sunoju03@gmail.com</a><br>
+                          팀원 : 김동현 | <a href="mailto:budkim1124@gmail.com">budkim1124@gmail.com</a>
+                          </p>
+                          모든 코드는 Github에 공개되어 있습니다.<br>
+                          해당 페이지는 프로토타입으로 만들어졌으므로, 공식적인 근거 자료로 활용할 수 없습니다.
+                        </p>
+                      </div>
+                      <div class="col-xs-6 col-md-2">
+                        <h6>Categories</h6>
+                        <ul class="footer-links">
+                          <li><a href="{% url 'index' %}">Main</a></li>
+                          <li><a href="{% url 'chicken_result' %}">Detail</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-xs-6 col-md-4">
+                        <h6>Quick Links</h6>
+                        <table>
+                            <tr>
+                                <td class="text-left"><a href="{% url 'chicken_result' %}">치킨</a></td>
+                                <td class="text-right"><a href="{% url 'ilsik_result' %}">돈까스/일식</a></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><a href="{% url 'bunsik_result' %}">분식</a></td>
+                                <td class="text-right"><a href="{% url 'yasik_result' %}">야식</a></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><a href="{% url 'jokbal_result' %}">족발/보쌈</a></td>
+                                <td class="text-right"><a href="{% url 'jungsik_result' %}">중식</a></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><a href="{% url 'jimtang_result' %}">찜/탕</a></td>
+                                <td class="text-right"><a href="{% url 'cafe_result' %}">카페/디저트</a></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><a href="{% url 'fastfood_result' %}">패스트푸드</a></td>
+                                <td class="text-right"><a href="{% url 'hansik_result' %}">한식</a></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><a href="{% url 'etc_result' %}">기타</a></td>
+                            </tr>
+                        </table>
+                      </div>
                     </div>
-                </footer>
+                    <hr>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-8 col-sm-6 col-xs-12">
+                        <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+                     <a href="#">Scanfcode</a>.
+                        </p>
+                      </div>
+
+                      <div class="col-md-4 col-sm-6 col-xs-12">
+                        <ul class="social-icons">
+                          <li><a class="github" href="https://github.com/parksimis/Mulcam-Delivery-Service"><i class="fab fa-github"></i></a></li>
+                          <li><a class="dribbble" href="mailto:parksimis@kyonggi.ac.kr"><i class="far fa-envelope"></i></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+            </footer>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
