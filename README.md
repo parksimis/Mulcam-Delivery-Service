@@ -4,13 +4,17 @@
 
 
 
-
-
 ## 프로젝트 소개
 
 * 공공데이터를 활용하여, 머신러닝 알고리즘을 사용해 예측하고 서비스 개발을 목표로 하는 프로젝트 입니다.
 
 
+
+## 데모 영상
+
+* 배포는 하지 않았고, 로컬에서 실행되는 데모 웹사이트 영상입니다.
+
+<img width="600" height="335" alt="screen shot 2021-05-10 at 18 49 pm " src="https://user-images.githubusercontent.com/51108153/117640625-25be5580-b1c0-11eb-9741-8ce59603a58c.gif">
 
 [![django](https://img.shields.io/badge/django-3.1.7-green)](https://img.shields.io/badge/django-3.1.7-green)
 
